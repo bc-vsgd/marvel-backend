@@ -2,7 +2,6 @@
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
-// const axios = require("axios");
 
 const app = express();
 app.use(cors());
@@ -13,7 +12,7 @@ const marvelCharacterRoutes = require("./routes/marvel/character");
 app.use(marvelComicRoutes);
 app.use(marvelCharacterRoutes);
 
-// Home
+// My home page
 app.get("/", (req, res) => {
   try {
     return res.status(200).json({ message: "My site home page" });
@@ -24,7 +23,6 @@ app.get("/", (req, res) => {
 });
 
 // Marvel home
-// const marvelUrl = process.env.MARVEL_URL;
 app.get("/marvel", (req, res) => {
   try {
     return res.status(200).json({ message: "Marvel home page" });
@@ -38,6 +36,6 @@ app.all("*", (req, res) => {
   return res.status(404).json({ message: "Not found" });
 });
 
-app.listen(3000, () => {
+app.listen(process.env.PORT || 3000, () => {
   console.log("Marvel server started");
 });

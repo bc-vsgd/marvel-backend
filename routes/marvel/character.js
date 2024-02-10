@@ -33,7 +33,7 @@ router.get("/marvel/character/:id", async (req, res) => {
     });
     return res.status(200).json({ message: response.data });
   } catch (error) {
-    return res.status(500).json({ message: error.message });
+    return res.status(500).json({ data: error.message });
   }
 });
 
