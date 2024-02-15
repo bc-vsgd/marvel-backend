@@ -6,6 +6,7 @@ const marvelUrl = process.env.MARVEL_URL;
 
 router.get("/marvel/characters", async (req, res) => {
   try {
+    // console.log("Coucou");
     const { page, limit, name } = req.query;
     // 100 results per page
     const skip = page * 100 - 100;
